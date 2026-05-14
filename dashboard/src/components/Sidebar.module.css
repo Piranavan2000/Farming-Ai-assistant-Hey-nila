@@ -1,0 +1,91 @@
+.sidebar {
+  width: 260px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  padding-right: 0;
+}
+
+.logoArea {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--text-primary);
+  margin-bottom: 40px;
+}
+
+.navSection {
+  margin-bottom: 30px;
+}
+
+.sectionTitle {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-light);
+  margin-bottom: 12px;
+  padding-left: 12px;
+}
+
+.navList {
+  list-style: none;
+}
+
+.navItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border-radius: 12px;
+  cursor: pointer;
+  color: var(--text-secondary);
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.navItem:hover {
+  background-color: var(--faded-green);
+  color: var(--primary-green);
+}
+
+.active {
+  background-color: var(--faded-green);
+  color: var(--primary-green);
+  font-weight: 600;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+}
+
+/* App Promo specific to reference image */
+.appPromo {
+  margin-top: auto;
+  background: linear-gradient(135deg, var(--primary-green), #0B3324);
+  padding: 20px;
+  border-radius: 16px;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.promoTitle {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.promoSub {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.linkReset {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}

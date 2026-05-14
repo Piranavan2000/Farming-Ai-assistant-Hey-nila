@@ -1,0 +1,22 @@
+.layoutContainer {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    background-color: var(--bg-color);
+}
+
+.mainWrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+    padding-left: 0;
+    overflow: hidden;
+}
+
+.contentArea {
+    flex: 1;
+    overflow-y: auto;
+    border-radius: var(--border-radius);
+    background-color: var(--bg-color);
+}

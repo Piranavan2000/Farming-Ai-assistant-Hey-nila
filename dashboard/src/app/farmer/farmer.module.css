@@ -1,0 +1,481 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   FARMER PORTAL — Fully responsive, accessible for elderly/low-vision farmers
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.farmerPage {
+  min-height: 100vh;
+  background: #0d0d12;
+  color: #fff;
+  font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+  padding: 0 0 32px;
+  width: 100%;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* ── Loading ─────────────────────────────────────────────────────────────── */
+.loadingWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  gap: 1.5rem;
+}
+
+.spinner {
+  width: 48px;
+  height: 48px;
+  border: 4px solid rgba(255,255,255,0.1);
+  border-top-color: #FF6600;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.loadingText {
+  font-size: 1.2rem;
+  color: rgba(255,255,255,0.5);
+  font-weight: 600;
+}
+
+/* ── Header ──────────────────────────────────────────────────────────────── */
+.header {
+  display: flex;
+  align-items: center;
+  padding: 16px 24px 12px;
+  gap: 12px;
+  background: rgba(0,0,0,0.4);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(12px);
+}
+
+.backBtn {
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+}
+
+.headerTitle {
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  flex: 1;
+  color: #fff;
+}
+
+.farmerBadge {
+  background: #FF6600;
+  color: #fff;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: 800;
+  margin-left: 6px;
+  vertical-align: middle;
+}
+
+.micIndicator {
+  color: rgba(255,255,255,0.3);
+}
+
+.micActive {
+  color: #22c55e;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+/* ── Content wrapper for desktop centering ───────────────────────────────── */
+.content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* ── Voice Bar ───────────────────────────────────────────────────────────── */
+.voiceBar {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 16px;
+  margin: 12px 16px;
+  background: rgba(99, 102, 241, 0.1);
+  border: 1px solid rgba(99, 102, 241, 0.25);
+  border-radius: 16px;
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.voiceOrb {
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #c084fc, #6366f1, #38bdf8);
+  animation: orbPulse 2s ease-in-out infinite;
+}
+
+.voiceOrb[data-state="listening"] {
+  background: radial-gradient(circle, #22c55e, #16a34a);
+  animation: orbPulse 1s ease-in-out infinite;
+}
+
+.voiceOrb[data-state="thinking"] {
+  background: radial-gradient(circle, #a855f7, #6366f1);
+  animation: orbSpin 1.5s linear infinite;
+}
+
+.voiceOrb[data-state="speaking"] {
+  background: radial-gradient(circle, #38bdf8, #6366f1);
+  animation: orbWobble 0.8s ease-in-out infinite;
+}
+
+@keyframes orbPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+}
+
+@keyframes orbSpin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes orbWobble {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1) translateY(-2px); }
+}
+
+.voiceInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.voiceStatus {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #c084fc;
+  margin: 0;
+}
+
+.voiceQuery {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.7);
+  margin: 6px 0 0;
+  font-style: italic;
+}
+
+.voiceAnswer {
+  font-size: 1.05rem;
+  color: #fff;
+  margin: 8px 0 0;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+/* ── Prescription Card ───────────────────────────────────────────────────── */
+.prescriptionCard {
+  margin: 16px;
+  padding: 28px 24px;
+  background: #fff;
+  border-radius: 20px;
+  border-left: 6px solid #FF6600;
+  color: #111;
+  text-align: center;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+}
+
+.prescriptionIcon {
+  font-size: 2rem;
+  margin-bottom: 4px;
+}
+
+.prescriptionLabel {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #888;
+  letter-spacing: 2px;
+  margin: 0 0 8px;
+}
+
+.prescriptionAction {
+  font-size: 1.8rem;
+  font-weight: 900;
+  margin: 0 0 10px;
+  line-height: 1.2;
+  color: #FF6600;
+}
+
+.prescriptionDetail {
+  font-size: 1rem;
+  color: #555;
+  margin: 0 0 8px;
+  line-height: 1.5;
+}
+
+.prescriptionMeta {
+  font-size: 0.8rem;
+  color: #999;
+  margin: 0 0 16px;
+}
+
+.markDoneBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 40px;
+  background: #22c55e;
+  color: #fff;
+  border: none;
+  border-radius: 14px;
+  font-size: 1.15rem;
+  font-weight: 800;
+  cursor: pointer;
+  letter-spacing: 1px;
+  transition: transform 0.2s, background 0.2s;
+  max-width: 400px;
+  width: 100%;
+  justify-content: center;
+}
+
+.markDoneBtn:hover {
+  background: #16a34a;
+  transform: scale(1.02);
+}
+
+.markDoneBtn:active {
+  transform: scale(0.97);
+  background: #16a34a;
+}
+
+.doneText {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #22c55e;
+  margin: 12px 0 0;
+}
+
+/* ── Gauge Section ───────────────────────────────────────────────────────── */
+.gaugesSection {
+  padding: 0 16px;
+  margin-top: 24px;
+}
+
+.sectionTitle {
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: rgba(255,255,255,0.4);
+  margin: 0 0 16px;
+  padding-left: 4px;
+}
+
+.gaugesGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.gaugeCard {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 20px;
+  padding: 20px 12px 14px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: border-color 0.2s;
+}
+
+.gaugeCard:hover {
+  border-color: rgba(255,255,255,0.12);
+}
+
+.gaugeSvg {
+  width: 110px;
+  height: 110px;
+}
+
+.gaugeLabel {
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: rgba(255,255,255,0.8);
+  letter-spacing: 1.5px;
+  margin: 10px 0 0;
+}
+
+.gaugeUnit {
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.35);
+  margin: 2px 0 0;
+}
+
+/* ── Prediction Section ──────────────────────────────────────────────────── */
+.predictionSection {
+  padding: 0 16px;
+  margin-top: 24px;
+}
+
+.predictionCard {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 20px;
+  padding: 4px 0;
+  overflow: hidden;
+}
+
+.predictionRow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 20px;
+}
+
+.predictionEmoji {
+  font-size: 1.6rem;
+  min-width: 36px;
+  text-align: center;
+}
+
+.predictionLabel {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.45);
+  margin: 0;
+  letter-spacing: 0.5px;
+}
+
+.predictionValue {
+  font-size: 1.15rem;
+  font-weight: 800;
+  margin: 4px 0 0;
+}
+
+.predictionDivider {
+  height: 1px;
+  background: rgba(255,255,255,0.06);
+  margin: 0 20px;
+}
+
+/* ── Quick Cards ─────────────────────────────────────────────────────────── */
+.quickCards {
+  padding: 0 16px;
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+.quickCard {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 18px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 16px;
+  transition: background 0.2s, border-color 0.2s;
+  cursor: pointer;
+}
+
+.quickCard:hover {
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(255,255,255,0.1);
+}
+
+.quickCard:active {
+  background: rgba(255,255,255,0.08);
+}
+
+.quickEmoji {
+  font-size: 2rem;
+}
+
+.quickLabel {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.5);
+  font-weight: 600;
+  margin: 0;
+}
+
+.quickValue {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #fff;
+  margin: 2px 0 0;
+}
+
+.quickArrow {
+  margin-left: auto;
+  color: rgba(255,255,255,0.2);
+}
+
+/* ── Nila Voice FAB ──────────────────────────────────────────────────────── */
+.nilaFloat {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 16px;
+  background: linear-gradient(transparent, #0d0d12 30%);
+  text-align: center;
+  z-index: 50;
+}
+
+.nilaBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 40px;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  color: #fff;
+  border: none;
+  border-radius: 100px;
+  font-size: 1.15rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 8px 32px rgba(99,102,241,0.4);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.nilaBtn:hover {
+  box-shadow: 0 12px 40px rgba(99,102,241,0.5);
+  transform: translateY(-2px);
+}
+
+.nilaBtn:active {
+  transform: scale(0.96);
+}
+
+.nilaHint {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.3);
+  margin: 8px 0 0;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   RESPONSIVE BREAKPOINTS (Mobile only fixes)
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ── Small phones (360px and below) ──────────────────────────────────────── */
+@media (max-width: 360px) {
+  .prescriptionAction { font-size: 1.3rem; }
+  .gaugesGrid { gap: 8px; }
+  .gaugeSvg { width: 80px; height: 80px; }
+  .quickValue { font-size: 1.2rem; }
+  .quickEmoji { font-size: 1.5rem; }
+}

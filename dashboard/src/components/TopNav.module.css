@@ -1,0 +1,128 @@
+.navWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 40px;
+  width: 100%;
+}
+
+.leftSection {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.03em;
+}
+
+.logoIcon {
+  color: var(--brand-green);
+}
+
+.centerSection {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.navLink {
+  color: var(--text-secondary);
+  font-weight: 700;
+  font-size: 0.95rem;
+  transition: color 0.2s ease;
+}
+
+.navLink:hover {
+  color: var(--brand-dark);
+}
+
+.navLink.active {
+  color: var(--text-primary);
+  font-weight: 800;
+}
+
+.rightSection {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.searchBar {
+  display: flex;
+  align-items: center;
+  background: white;
+  border-radius: 100px;
+  padding: 8px 16px;
+  width: 280px;
+  gap: 8px;
+}
+
+.searchBar input {
+  border: none;
+  background: transparent;
+  outline: none;
+  width: 100%;
+  color: var(--text-primary);
+  font-family: inherit;
+}
+
+.searchBar input::placeholder {
+  color: var(--text-light);
+}
+
+.upgradeBtn {
+  background: var(--brand-dark);
+  color: white;
+  border: none;
+  border-radius: 100px;
+  padding: 10px 24px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.upgradeBtn:hover {
+  opacity: 0.9;
+}
+
+.iconBtn {
+  background: white;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  cursor: pointer;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--brand-green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--brand-dark);
+  font-weight: 700;
+  margin-left: 8px;
+}
+
+@media (max-width: 1024px) {
+  .centerSection {
+    display: none;
+  }
+  .searchBar {
+    width: 200px;
+  }
+}

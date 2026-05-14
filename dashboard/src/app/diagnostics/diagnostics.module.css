@@ -1,0 +1,119 @@
+.container {
+  padding: 40px;
+  color: white;
+  min-height: 100vh;
+}
+
+.header {
+  margin-bottom: 40px;
+}
+
+.header h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.card {
+  background: rgba(15, 23, 42, 0.7);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  padding: 25px;
+}
+
+.statGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.statItem {
+  background: rgba(255, 255, 255, 0.03);
+  padding: 15px;
+  border-radius: 16px;
+}
+
+.statLabel {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.5);
+  display: block;
+  margin-bottom: 5px;
+}
+
+.statValue {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.fullWidth {
+  grid-column: span 3;
+}
+
+.terminal {
+  background: #000;
+  border-radius: 16px;
+  padding: 20px;
+  font-family: 'Courier New', Courier, monospace;
+  height: 300px;
+  overflow-y: auto;
+  font-size: 0.9rem;
+  border: 1px solid #333;
+}
+
+.logEntry {
+  margin-bottom: 8px;
+  display: flex;
+  gap: 15px;
+}
+
+.logTime {
+  color: #666;
+}
+
+.logStatus {
+  font-weight: bold;
+}
+
+.success { color: #22c55e; }
+.error { color: #ef4444; }
+
+.logPayload {
+  color: #aaa;
+  word-break: break-all;
+}
+
+.card h2 {
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.configItem {
+  margin-bottom: 15px;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 12px;
+  border-radius: 12px;
+}
+
+.configLabel {
+  display: block;
+  font-size: 0.75rem;
+  color: #888;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.configValue {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #ddd;
+}
